@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
+  "name": "FarmBot",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -37,7 +37,9 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.4",
     "karma-ng-html2js-preprocessor": "~0.1.0",
-    "grunt-bower-postinst": "~0.2.1"
+    "grunt-bower-postinst": "~0.2.1",
+    "nib": "~1.0.1",
+    "grunt-contrib-stylus": "~0.8.0"
   },
   "engines": {
     "node": ">=0.8.0"

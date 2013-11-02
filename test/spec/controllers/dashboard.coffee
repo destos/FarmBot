@@ -1,17 +1,17 @@
 'use strict'
 
-describe 'Controller: MainCtrl', () ->
+describe 'Controller: DashboardCtrl', () ->
 
   # load the controller's module
   beforeEach module 'FarmBot'
 
-  MainCtrl = {}
+  DashboardCtrl = {}
   scope = {}
 
   # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope) ->
     scope = $rootScope.$new()
-    MainCtrl = $controller 'MainCtrl', {
+    DashboardCtrl = $controller 'DashboardCtrl', {
       $scope: scope
     }
 

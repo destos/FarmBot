@@ -24,6 +24,20 @@ module.exports = function (grunt) {
             }
         }
     },
+    stylus: {
+      app: {
+        options: {
+          paths: ['styles'],
+          use: [
+            require('nib')
+          ]
+        },
+        import: ['nib'],
+        files: {
+          '.tmp/styles/main.css': 'app/styles/main.styl'
+        }
+      }
+    },
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
@@ -41,6 +55,10 @@ module.exports = function (grunt) {
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['copy:styles', 'autoprefixer']
+      },
+      stylus: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.styl'],
+        tasks: ['stylus:app', 'autoprefixer']
       },
       livereload: {
         options: {
@@ -261,15 +279,18 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'coffee:dist',
-        'copy:styles'
+        'copy:styles',
+        'stylus:app'
       ],
       test: [
         'coffee',
-        'copy:styles'
+        'copy:styles',
+        'stylus:app'
       ],
       dist: [
         'coffee',
         'copy:styles',
+        'stylus:app',
         'imagemin',
         'svgmin',
         'htmlmin'
