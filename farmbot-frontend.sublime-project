@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+			"name": "farmbot-frontend",
+			"path": ".",
+			"folder_exclude_patterns": [
+	            "node_modules",
+	            // "app/bower_components",
+				// "dist",
+				".tmp"
+			]
+		}
+	],
+	"settings":
+	{
+		"tab_size": 4
+	}
+}
