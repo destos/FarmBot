@@ -3,7 +3,7 @@
 describe 'Controller: FarmCtrl', () ->
 
   # load the controller's module
-  beforeEach module 'FarmBot'
+  beforeEach module 'FarmBotApp'
 
   FarmCtrl = {}
   scope = {}

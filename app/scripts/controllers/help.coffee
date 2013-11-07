@@ -1,5 +1,5 @@
 'use strict'
 
 angular.module('FarmBotApp')
-  .controller 'FarmCtrl', ($scope) ->
+  .controller 'HelpCtrl', ($scope) ->
   	return

@@ -17,7 +17,7 @@
                 <link rel="stylesheet" href="styles/main.css">
                 <!-- endbuild -->
 </head>
-    <body ng-app="FarmBot">
+    <body ng-app="FarmBotApp">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -93,10 +93,12 @@
 
                 <!-- build:js({.tmp,app}) scripts/scripts.js -->
                 <script src="scripts/app.js"></script>
-                <script src="scripts/controllers/main.js"></script>
                 <script src="scripts/controllers/dashboard.js"></script>
                 <script src="scripts/controllers/farm.js"></script>
                 <script src="scripts/controllers/header.js"></script>
+                <script src="scripts/services/weather.js"></script>
+                <script src="scripts/controllers/data.js"></script>
+                <script src="scripts/controllers/help.js"></script>
                 <!-- endbuild -->
 </body>
 </html>

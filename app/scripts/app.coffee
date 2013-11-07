@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('FarmBot', [
+angular.module('FarmBotApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -23,13 +23,16 @@ angular.module('FarmBot', [
         url: '/farm'
         templateUrl: '/views/farm.html'
         controller: 'FarmCtrl'
-    # $routeProvider
-    #   .when '/',
-    #     templateUrl: 'views/main.html'
-    #     controller: 'MainCtrl'
-    #   .otherwise
-    #     redirectTo: '/'
+      .state 'data',
+        url: '/data'
+        templateUrl: '/views/data.html'
+        controller: 'DataCtrl'
+      .state 'help',
+        url: '/help'
+        templateUrl: '/views/help.html'
+        controller: 'HelpCtrl'
 
+  # link ui-router state for debug purposes
   .run ($rootScope, $state, $stateParams) ->
     $rootScope.$state = $state
     $rootScope.$stateParams = $stateParams

@@ -1,7 +1,7 @@
 'use strict'
 
-angular.module('FarmBot')
-  .controller 'HeaderCtrl', ($scope) ->
+angular.module('FarmBotApp')
+  .controller 'HeaderCtrl', ($scope, Weather) ->
 	$scope.costs =
 		water: 4.12
 		pesticide: 15.3

@@ -3,7 +3,7 @@
 describe 'Controller: HeaderCtrl', () ->
 
   # load the controller's module
-  beforeEach module 'FarmBot'
+  beforeEach module 'FarmBotApp'
 
   HeaderCtrl = {}
   scope = {}
@@ -15,5 +15,8 @@ describe 'Controller: HeaderCtrl', () ->
       $scope: scope
     }
 
-  it 'should attach a list of awesomeThings to the scope', () ->
-    expect(scope.awesomeThings.length).toBe 3
+  it 'should attach a list of liquid costs to the scope', () ->
+    expect(scope.costs).toBe
+      water: 4.12
+      pesticide: 15.3
+      fertilizer: 1.73
