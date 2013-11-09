@@ -34,7 +34,14 @@ module.exports = function (grunt) {
         },
         import: ['nib'],
         files: {
-          '.tmp/styles/main.css': 'app/styles/main.styl'
+          '.tmp/styles/main-styl.css': 'app/styles/main.styl'
+        }
+      }
+    },
+    sass: {
+      app: {
+        files: {
+          '.tmp/styles/main-sass.css': 'app/styles/main.sass'
         }
       }
     },
@@ -58,7 +65,11 @@ module.exports = function (grunt) {
       },
       stylus: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.styl'],
-        tasks: ['stylus:app', 'autoprefixer']
+        tasks: ['stylus:app', 'concat:styles']
+      },
+      sass: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.sass'],
+        tasks: ['sass:app', 'concat:styles']
       },
       livereload: {
         options: {
@@ -163,9 +174,12 @@ module.exports = function (grunt) {
     },
     // not used since Uglify task does concat,
     // but still available if needed
-    /*concat: {
-      dist: {}
-    },*/
+    concat: {
+      styles: {
+        src: ['.tmp/styles/main-sass.css', '.tmp/styles/main-styl.css'],
+        dest: '.tmp/styles/main.css',
+      }
+    },
     rev: {
       dist: {
         files: {
@@ -280,17 +294,20 @@ module.exports = function (grunt) {
       server: [
         'coffee:dist',
         'copy:styles',
-        'stylus:app'
+        'stylus:app',
+        'sass:app'
       ],
       test: [
         'coffee',
         'copy:styles',
-        'stylus:app'
+        'stylus:app',
+        'sass:app'
       ],
       dist: [
         'coffee',
         'copy:styles',
         'stylus:app',
+        'sass:app',
         'imagemin',
         'svgmin',
         'htmlmin'
@@ -304,7 +321,7 @@ module.exports = function (grunt) {
     },
     cdnify: {
       dist: {
-        html: ['<%= yeoman.dist %>/*.html']
+        html: ['<%= yeoman.dist %>*.html']
       }
     },
     ngmin: {
@@ -336,7 +353,8 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
-      'autoprefixer',
+      'concat:styles',
+      // 'autoprefixer',
       'connect:livereload',
       'watch'
     ]);
@@ -345,17 +363,19 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',
-    'autoprefixer',
+    'concat:styles',
+    // 'autoprefixer',
     'connect:test',
-    'karma'
+    'karma',
+    'watch'
   ]);
 
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
-    'autoprefixer',
-    'concat',
+    'concat:styles',
+    // 'autoprefixer',
     'copy:dist',
     'cdnify',
     'ngmin',
