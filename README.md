@@ -17,7 +17,7 @@ the [AngularJS yeoman Generator](https://github.com/yeoman/generator-angular) is
 * [Angular UI router](https://github.com/angular-ui/ui-router)
 * jQuery 1.9.1
 * Angular resource
-* Angular cookies
+* Angular cookiesa
 * Angular sanatize
 
 **Bootstrap 3**
@@ -38,10 +38,29 @@ Move into the project directory and install node modules
 	cd /farmbot-frontend
 	npm install
 
+Workflows
+---------
+
+Run connect server for live functional testing
+
+	grunt server
+
+Run tests
+
+	grunt test
 
 Contributing
 ------------
 
 ### Code Guidelines
 
+All code should be written in [CoffeeScript](http://coffeescript.org/).
+
 When creating new bits of scaffolding with the angular generator make sure to include the `--coffee` flag.
+
+Try to organize view html logically.
+
+### Testing
+
+When using the yeoman angular generator the associated test specs will be created in the  `test/spec` folder. Please follow best practices with our test framework when writing tests.
+Since this project is in its infancy some leway should be given when writing new functionality. The end goal however will be to have a fully unit tested project.
